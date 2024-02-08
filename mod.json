@@ -7,6 +7,6 @@
 	"id": "khronophobia.more_settings_button",
 	"name": "More Settings Button",
 	"developer": "Khronophobia",
-	"description": "Adds the settings button to some places for convenience.",
+	"description": "Adds the settings button to the custom level page.",
 	"repository": "https://github.com/Khronophobia/More-Settings-Button"
 }
