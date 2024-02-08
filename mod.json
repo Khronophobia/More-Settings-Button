@@ -1,0 +1,12 @@
+{
+	"geode": "2.0.0-beta.16",
+	"gd": {
+		"win": "2.204"
+	},
+	"version": "v1.0.0",
+	"id": "khronophobia.more_settings_button",
+	"name": "More Settings Button",
+	"developer": "Khronophobia",
+	"description": "Adds the settings button to some places for convenience.",
+	"repository": "https://github.com/Khronophobia/More-Settings-Button"
+}
