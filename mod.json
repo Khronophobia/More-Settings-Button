@@ -1,9 +1,10 @@
 {
-	"geode": "2.0.0-beta.16",
+	"geode": "2.0.0-beta.17",
 	"gd": {
-		"win": "2.204"
+		"win": "2.204",
+		"android": "2.205"
 	},
-	"version": "v1.0.0",
+	"version": "v1.1.0",
 	"id": "khronophobia.more_settings_button",
 	"name": "More Settings Button",
 	"developer": "Khronophobia",
