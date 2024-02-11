@@ -10,6 +10,7 @@ class $modify(EditLevelLayer) {
 
 		auto optionsSprite = CCSprite::createWithSpriteFrameName("GJ_optionsBtn02_001.png");
 		auto optionsButton = CCMenuItemSpriteExtra::create(optionsSprite, this, menu_selector(MenuLayer::onOptions));
+		optionsButton->setID("game-settings-button"_spr);
 
 		auto menu = this->getChildByID("back-menu");
 		menu->addChild(optionsButton);
@@ -25,6 +26,7 @@ class $modify(LevelInfoLayer) {
 
 		auto optionsSprite = CCSprite::createWithSpriteFrameName("GJ_optionsBtn02_001.png");
 		auto optionsButton = CCMenuItemSpriteExtra::create(optionsSprite, this, menu_selector(MenuLayer::onOptions));
+		optionsButton->setID("game-settings-button"_spr);
 
 		auto menu = this->getChildByID("back-menu");
 		menu->addChild(optionsButton);
