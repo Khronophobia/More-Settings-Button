@@ -11,6 +11,7 @@ class $modify(EditLevelLayer) {
 		auto optionsSprite = CCSprite::createWithSpriteFrameName("GJ_optionsBtn02_001.png");
 		auto optionsButton = CCMenuItemSpriteExtra::create(optionsSprite, this, menu_selector(MenuLayer::onOptions));
 		optionsButton->setID("game-settings-button"_spr);
+		optionsButton->setZOrder(1);
 
 		auto menu = this->getChildByID("back-menu");
 		menu->addChild(optionsButton);
@@ -24,13 +25,33 @@ class $modify(LevelInfoLayer) {
 	bool init(GJGameLevel* p0, bool p1) {
 		if (!LevelInfoLayer::init(p0, p1)) return false;
 
-		auto optionsSprite = CCSprite::createWithSpriteFrameName("GJ_optionsBtn02_001.png");
-		auto optionsButton = CCMenuItemSpriteExtra::create(optionsSprite, this, menu_selector(MenuLayer::onOptions));
-		optionsButton->setID("game-settings-button"_spr);
+		CCNode* menu;
+		CCMenuItemSpriteExtra* optionsButton;
+		if (Mod::get()->getSettingValue<bool>("use-settings-rope")) {
+			auto optionsSprite = CCSprite::create("settingsRope_001.png"_spr);
+			optionsButton = CCMenuItemSpriteExtra::create(optionsSprite, this, menu_selector(MenuLayer::onOptions));
+			optionsButton->setSizeMult(1);
+			#ifdef GEODE_IS_ANDROID
+			optionsButton->useAnimationType(MenuAnimationType{1});
+			#else
+			/* I can't find useAnimationType on Windows but this seems to work. */
+			optionsButton->m_animationType = MenuAnimationType{1};
+			optionsButton->m_startPosition = optionsSprite->getPosition();
+			#endif
+			optionsButton->m_destPosition = CCPoint{0, -8.f};
+			optionsButton->setPositionX(-40.f);
 
-		auto menu = this->getChildByID("back-menu");
+			menu = this->getChildByID("garage-menu");
+		} else {
+			auto optionsSprite = CCSprite::createWithSpriteFrameName("GJ_optionsBtn02_001.png");
+			optionsButton = CCMenuItemSpriteExtra::create(optionsSprite, this, menu_selector(MenuLayer::onOptions));
+			optionsButton->setZOrder(1);
+
+			menu = this->getChildByID("back-menu");
+		}
 		menu->addChild(optionsButton);
 		menu->updateLayout();
+		optionsButton->setID("game-settings-button"_spr);
 
 		return true;
 	}

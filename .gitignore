@@ -53,3 +53,5 @@ build-*/
 
 # clangd
 .cache/
+
+CompileAndroid*.bat
