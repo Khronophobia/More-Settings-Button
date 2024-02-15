@@ -29,5 +29,8 @@
 			"type": "bool",
 			"default": false
 		}
-	}
+	},
+	"tags": [
+		"Convenience"
+	]
 }
