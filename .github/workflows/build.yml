@@ -32,6 +32,8 @@ jobs:
       - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
         with:
+          bindings: 'Khronophobia/geode-bindings'
+          bindings-ref: 'khronos'
           combine: true
           target: ${{ matrix.config.target }}
       
