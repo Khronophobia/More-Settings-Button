@@ -31,13 +31,7 @@ class $modify(LevelInfoLayer) {
 			auto optionsSprite = CCSprite::create("settingsRope_001.png"_spr);
 			optionsButton = CCMenuItemSpriteExtra::create(optionsSprite, this, menu_selector(MenuLayer::onOptions));
 			optionsButton->setSizeMult(1);
-			#ifdef GEODE_IS_ANDROID
-			optionsButton->useAnimationType(MenuAnimationType{1});
-			#else
-			/* I can't find useAnimationType on Windows but this seems to work. */
-			optionsButton->m_animationType = MenuAnimationType{1};
-			optionsButton->m_startPosition = optionsSprite->getPosition();
-			#endif
+			optionsButton->useAnimationType(MenuAnimationType::Move);
 			optionsButton->m_destPosition = CCPoint{0, -8.f};
 			optionsButton->setPositionX(-40.f);
 
