@@ -11,7 +11,6 @@ class $modify(EditLevelLayer) {
 		auto optionsSprite = CCSprite::createWithSpriteFrameName("GJ_optionsBtn02_001.png");
 		auto optionsButton = CCMenuItemSpriteExtra::create(optionsSprite, this, menu_selector(MenuLayer::onOptions));
 		optionsButton->setID("game-settings-button"_spr);
-		optionsButton->setZOrder(1);
 
 		auto menu = this->getChildByID("back-menu");
 		menu->addChild(optionsButton);
@@ -36,14 +35,15 @@ class $modify(LevelInfoLayer) {
 			optionsButton->setPositionX(-40.f);
 
 			menu = this->getChildByID("garage-menu");
+			menu->addChild(optionsButton);
 		} else {
 			auto optionsSprite = CCSprite::createWithSpriteFrameName("GJ_optionsBtn02_001.png");
 			optionsButton = CCMenuItemSpriteExtra::create(optionsSprite, this, menu_selector(MenuLayer::onOptions));
-			optionsButton->setZOrder(1);
 
 			menu = this->getChildByID("back-menu");
+			auto backBtn = menu->getChildByID("back-button");
+			menu->insertAfter(optionsButton, backBtn);
 		}
-		menu->addChild(optionsButton);
 		menu->updateLayout();
 		optionsButton->setID("game-settings-button"_spr);
 
